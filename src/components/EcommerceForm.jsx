@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 export default function EcommerceForm() {
   const [formData, setFormData] = useState({
@@ -49,10 +50,61 @@ const handleSubmit = (e) => {
 //This will be used in my rule as a custome event
   document.dispatchEvent(new CustomEvent("formSubmitComplete"));
 
-  console.log("Form Data:", formData);
   alert("Form submitted successfully!");
 };
 
+//---------------------Bot fill the form --------------------
+  const generateRandomData = () => {
+    const randomString = (length) => Math.random().toString(36).substring(2, 2 + length);
+    const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+    const cities = ["Mumbai", "Delhi", "Bangalore", "Hyderabad", "Chennai"];
+    const states = ["Maharashtra", "Karnataka", "Tamil Nadu", "Delhi", "Telangana"];
+    const products = ["Kurta", "Saree", "Smartphone", "Book", "Mixer Grinder"];
+    const categories = ["Fashion", "Electronics", "Books", "Home Appliances"];
+    const devices = ["Mobile", "Desktop", "Tablet"];
+    const paymentMethods = ["UPI", "Credit Card", "Cash on Delivery"];
+
+    return {
+      first_name: "Bot Test name" + randomString(3),
+      last_name: "Last name " + randomString(3),
+      email: `test_${randomString(5)}@gmail.com`,
+      phone: `9${randomInt(100000000, 999999999)}`,
+      gender: ["Male", "Female", "Other"][randomInt(0, 2)],
+      age: randomInt(22, 45).toString(),
+      city: cities[randomInt(0, cities.length - 1)],
+      state: states[randomInt(0, states.length - 1)],
+      pincode: `${randomInt(400000, 700000)}`,
+      address: `House No ${randomInt(1,100)}, Street ${randomInt(1,20)}`,
+      product_id: `IND-P${randomInt(1000, 9999)}`,
+      product_name: products[randomInt(0, products.length - 1)],
+      product_category: categories[randomInt(0, categories.length - 1)],
+      product_price: randomInt(500, 15000).toString(),
+      quantity: randomInt(1, 3).toString(),
+      total_amount: randomInt(500, 25000).toString(),
+      discount_applied: randomInt(0, 1000).toString(),
+      payment_method: paymentMethods[randomInt(0, paymentMethods.length - 1)],
+      order_id: `ORDIND${randomInt(10000, 99999)}`,
+      order_date: "2024-06-04",
+      delivery_date: "2024-06-06",
+      is_repeat_customer: Math.random() > 0.5,
+      preferred_device: devices[randomInt(0, devices.length - 1)],
+      marketing_opt_in: Math.random() > 0.5,
+      loyalty_points: randomInt(0, 1000).toString()
+    };
+  };
+
+useEffect(() => {
+  const generated = generateRandomData();
+  setFormData(generated);
+
+  // Auto-submit after 10 second
+  const timer = setTimeout(() => {
+    document.querySelector("form").dispatchEvent(new Event("submit", { bubbles: true }));
+  }, 10000);
+
+  return () => clearTimeout(timer);
+}, []);
+//---------------------Bot fill the form --------------------
 
   return (
     <div className="form-container">
