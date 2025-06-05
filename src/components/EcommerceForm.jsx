@@ -18,6 +18,7 @@ export default function EcommerceForm() {
     product_category: "",
     product_price: "",
     quantity: "",
+    customer_id: "",
     total_amount: "",
     discount_applied: "",
     payment_method: "",
@@ -80,6 +81,7 @@ const handleSubmit = (e) => {
       product_category: categories[randomInt(0, categories.length - 1)],
       product_price: randomInt(500, 15000).toString(),
       quantity: randomInt(1, 3).toString(),
+      customer_id: `CUST-${randomString(8)}`,
       total_amount: randomInt(500, 25000).toString(),
       discount_applied: randomInt(0, 1000).toString(),
       payment_method: paymentMethods[randomInt(0, paymentMethods.length - 1)],
@@ -113,6 +115,7 @@ useEffect(() => {
         <input name="first_name" placeholder="First Name" value={formData.first_name} onChange={handleChange} className="form-input"  />
         <input name="last_name" placeholder="Last Name" value={formData.last_name} onChange={handleChange} className="form-input"  />
         <input name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} className="form-input" required/>
+        <input name="customer_id" placeholder="Customer ID" value={formData.customer_id} onChange={handleChange} className="form-input"  />
         <input name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} className="form-input"  />
         <select name="gender" value={formData.gender} onChange={handleChange} className="form-input" >
           <option value="">Select Gender</option>
