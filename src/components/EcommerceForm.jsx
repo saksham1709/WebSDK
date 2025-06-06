@@ -66,8 +66,8 @@ const handleSubmit = (e) => {
     const paymentMethods = ["UPI", "Credit Card", "Cash on Delivery"];
 
     return {
-      first_name: "Bot Test name" + randomString(3),
-      last_name: "Last name " + randomString(3),
+      first_name: "Data Sent to Analytics - Sent it back to AEP",
+      last_name: "Data Sent to Analytics - Sent it back to AEP",
       email: `test_${randomString(5)}@gmail.com`,
       phone: `9${randomInt(100000000, 999999999)}`,
       gender: ["Male", "Female", "Other"][randomInt(0, 2)],
@@ -75,7 +75,7 @@ const handleSubmit = (e) => {
       city: cities[randomInt(0, cities.length - 1)],
       state: states[randomInt(0, states.length - 1)],
       pincode: `${randomInt(400000, 700000)}`,
-      address: `House No ${randomInt(1,100)}, Street ${randomInt(1,20)}`,
+      address: `"Data Sent to Analytics - Sent it back to AEP" ${randomInt(1,100)}, Street ${randomInt(1,20)}`,
       product_id: `IND-P${randomInt(1000, 9999)}`,
       product_name: products[randomInt(0, products.length - 1)],
       product_category: categories[randomInt(0, categories.length - 1)],
