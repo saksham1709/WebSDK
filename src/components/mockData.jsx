@@ -1,6 +1,6 @@
 export const generateRealisticData = () => {
   const nameGenderPairs = [
-    { name: "Aarav", gender: "Male" }, { name: "Vivaan", gender: "Male" }, { name: "Aditya", gender: "Male" },
+    { name: "Prince", gender: "Male" }, { name: "Vivaan", gender: "Male" }, { name: "Aditya", gender: "Male" },
     { name: "Krishna", gender: "Male" }, { name: "Arjun", gender: "Male" }, { name: "Rohan", gender: "Male" },
     { name: "Aryan", gender: "Male" }, { name: "Samar", gender: "Male" }, { name: "Kabir", gender: "Male" },
     { name: "Ishaan", gender: "Male" }, { name: "Manav", gender: "Male" }, { name: "Yash", gender: "Male" },
@@ -20,12 +20,43 @@ export const generateRealisticData = () => {
     { name: "Ekta", gender: "Female" }, { name: "Tara", gender: "Female" }, { name: "Chaitanya", gender: "Male" }
   ];
 
-  const lastNames = [/* same 50+ last names as before */];
-  const stateCityMap = { /* same mapping as before */ };
+  const lastNames = [
+    "Parvat","Sharma", "Verma", "Patel", "Reddy", "Iyer", "Kumar", "Singh", "Nair", "Yadav", "Chopra",
+    "Joshi", "Mehta", "Mishra", "Dubey", "Thakur", "Saxena", "Ghosh", "Das", "Rao", "Jain",
+    "Malhotra", "Gupta", "Bansal", "Mahajan", "Kaul", "Pillai", "Bhat", "Kapoor", "Roy", "Paul",
+    "Pandey", "Tiwari", "Aggarwal", "Bajaj", "Mittal", "Arora", "Chatterjee", "Sarkar", "Sethi", "Kulkarni",
+    "Shetty", "Banerjee", "Deshmukh", "Naidu", "Dutta", "Bhattacharya", "Bhaskar", "Vyas", "Dwivedi", "Khatri"
+  ];
+  const stateCityMap = {
+    "Maharashtra": ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad"],
+    "Karnataka": ["Bangalore", "Mysore", "Hubli", "Mangalore", "Belgaum"],
+    "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Tiruchirapalli", "Salem"],
+    "Delhi": ["New Delhi", "Dwarka", "Rohini", "Karol Bagh", "Saket"],
+    "Telangana": ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Khammam"],
+    "Gujarat": ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar"],
+    "West Bengal": ["Kolkata", "Howrah", "Durgapur", "Asansol", "Siliguri"],
+    "Uttar Pradesh": ["Lucknow", "Kanpur", "Varanasi", "Agra", "Noida"],
+    "Rajasthan": ["Jaipur", "Jodhpur", "Udaipur", "Ajmer", "Bikaner"],
+    "Punjab": ["Amritsar", "Ludhiana", "Jalandhar", "Patiala", "Bathinda"]
+  };
+
   const domains = ["gmail.com", "yahoo.com", "outlook.com", "hotmail.com", "protonmail.com"];
-  const products = [/* same as before */];
+
   const devices = ["Mobile", "Desktop", "Tablet", "Smart TV"];
   const paymentMethods = ["UPI", "Credit Card", "Cash on Delivery", "Debit Card", "Net Banking"];
+
+  const products = [
+    { name: "Kurta", category: "Fashion", price: 799 },
+    { name: "Saree", category: "Fashion", price: 1299 },
+    { name: "Smartphone", category: "Electronics", price: 12000 },
+    { name: "Cookbook", category: "Books", price: 399 },
+    { name: "Mixer Grinder", category: "Home Appliances", price: 2500 },
+    { name: "Sneakers", category: "Fashion", price: 1999 },
+    { name: "LED TV", category: "Electronics", price: 22000 },
+    { name: "Laptop", category: "Electronics", price: 55000 },
+    { name: "Backpack", category: "Accessories", price: 999 },
+    { name: "Formal Shoes", category: "Fashion", price: 2399 }
+  ];
 
   const random = (arr) => arr[Math.floor(Math.random() * arr.length)];
   const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
