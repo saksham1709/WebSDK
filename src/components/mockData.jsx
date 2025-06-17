@@ -13,7 +13,7 @@ export const generateRealisticData = () => {
   };
 
   const firstNames = [
-    "Aarav", "Vivaan", "Aditya", "Krishna", "Arjun", "Rohan", "Aryan", "Samar", "Kabir", "Ishaan",
+    "Prince","Aarav", "Vivaan", "Aditya", "Krishna", "Arjun", "Rohan", "Aryan", "Samar", "Kabir", "Ishaan",
     "Ananya", "Diya", "Ishita", "Sneha", "Sanya", "Avni", "Kriti", "Meera", "Aanya", "Riya",
     "Tanya", "Prisha", "Nisha", "Ritika", "Pooja", "Neha", "Sakshi", "Radhika", "Simran", "Aarohi",
     "Manav", "Yash", "Veer", "Shaurya", "Dev", "Harsh", "Nikhil", "Abhay", "Kunal", "Jay",
@@ -21,7 +21,7 @@ export const generateRealisticData = () => {
   ];
 
   const lastNames = [
-    "Sharma", "Verma", "Patel", "Reddy", "Iyer", "Kumar", "Singh", "Nair", "Yadav", "Chopra",
+    "Parvat","Sharma", "Verma", "Patel", "Reddy", "Iyer", "Kumar", "Singh", "Nair", "Yadav", "Chopra",
     "Joshi", "Mehta", "Mishra", "Dubey", "Thakur", "Saxena", "Ghosh", "Das", "Rao", "Jain",
     "Malhotra", "Gupta", "Bansal", "Mahajan", "Kaul", "Pillai", "Bhat", "Kapoor", "Roy", "Paul",
     "Pandey", "Tiwari", "Aggarwal", "Bajaj", "Mittal", "Arora", "Chatterjee", "Sarkar", "Sethi", "Kulkarni",
