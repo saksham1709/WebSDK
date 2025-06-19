@@ -25,14 +25,15 @@ export default function EcommerceForm() {
   };
 
   useEffect(() => {
-    const generated = generateRealisticData();
-    setFormData(generated);
+    const generated = generateRealisticData(); //generates new mock data
+    setFormData(generated); //  sets it into the form                
 
-    const timer = setTimeout(() => {
-      document.querySelector("form").dispatchEvent(new Event("submit", { bubbles: true }));
-    }, 10000);
+    // Auto submit functionality can be enabled by uncommenting the following lines:
+    // const timer = setTimeout(() => {
+    //   document.querySelector("form").dispatchEvent(new Event("submit", { bubbles: true }));
+    // }, 10000);
 
-    return () => clearTimeout(timer);
+    // return () => clearTimeout(timer);
   }, []);
 
   return (
