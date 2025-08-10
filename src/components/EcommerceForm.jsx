@@ -5,12 +5,20 @@ export default function EcommerceForm() {
   const [formData, setFormData] = useState({ ...generateRealisticData() });
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
+  const { name, value, type, checked } = e.target;
+
+  let newValue = value;
+
+  // Convert specific date fields to ISO 8601
+  if (type === "date" && name === "order_date") {
+    newValue = value ? new Date(value).toISOString() : "";
+  }
+
+  setFormData((prev) => ({
+    ...prev,
+    [name]: type === "checkbox" ? checked : newValue,
+  }));
+};
 
   const handleSubmit = (e) => {
     e.preventDefault();
