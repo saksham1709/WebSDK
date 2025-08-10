@@ -4,21 +4,25 @@ import { generateRealisticData } from "./mockData"; // adjust the path if mockDa
 export default function EcommerceForm() {
   const [formData, setFormData] = useState({ ...generateRealisticData() });
 
+  // Converts "YYYY-MM-DD" -> ISO 8601 "YYYY-MM-DDT00:00:00.000Z"
+  // If it's already ISO, returns as-is.
+  const toIsoIfDate = (val) => {
+    if (!val) return "";
+    // already looks like ISO
+    if (/^\d{4}-\d{2}-\d{2}T/.test(val)) return val;
+    // looks like YYYY-MM-DD
+    if (/^\d{4}-\d{2}-\d{2}$/.test(val)) return new Date(val).toISOString();
+    return val;
+  };
+
+
   const handleChange = (e) => {
-  const { name, value, type, checked } = e.target;
-
-  let newValue = value;
-
-  // Convert specific date fields to ISO 8601
-  if (type === "date" && name === "order_date") {
-    newValue = value ? new Date(value).toISOString() : "";
-  }
-
-  setFormData((prev) => ({
-    ...prev,
-    [name]: type === "checkbox" ? checked : newValue,
-  }));
-};
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,8 +31,22 @@ export default function EcommerceForm() {
       return;
     }
 
-    sessionStorage.setItem("ecomFormData", JSON.stringify(formData));
+    // Make a copy and convert dates just before saving/sending
+    const normalized = {
+      ...formData,
+      // keep the user-friendly date for UI/debug
+      order_date_display: formData.order_date || "",
+      // NEW: ISO version for AEP mapping
+      order_date_iso: toIsoIfDate(formData.order_date),
+    };
+
+    // If you also want delivery_date in ISO, do the same:
+    // delivery_date_display: formData.delivery_date || "",
+    // delivery_date_iso: toIsoIfDate(formData.delivery_date),
+
+    sessionStorage.setItem("ecomFormData", JSON.stringify(normalized));
     document.dispatchEvent(new CustomEvent("formSubmitComplete"));
+
     alert("Form submitted successfully!");
   };
 
@@ -93,6 +111,7 @@ export default function EcommerceForm() {
         <input name="order_id" placeholder="Order ID" value={formData.order_id} onChange={handleChange} className="form-input" />
         <label>Order Date</label>
         <input name="order_date" type="date" placeholder="Order Date" value={formData.order_date} onChange={handleChange} className="form-input" />
+
         <label>Delivery Date</label>
         <input name="delivery_date" type="date" placeholder="Delivery Date" value={formData.delivery_date} onChange={handleChange} className="form-input" />
         <label className="checkbox-label">
