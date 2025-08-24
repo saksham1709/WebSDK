@@ -1,23 +1,23 @@
 export const generateRealisticData = () => {
   const nameGenderPairs = [
-    { name: "Prince", gender: "Male" }, { name: "Vivaan", gender: "Male" }, { name: "Aditya", gender: "Male" },
-    { name: "Krishna", gender: "Male" }, { name: "Arjun", gender: "Male" }, { name: "Rohan", gender: "Male" },
-    { name: "Aryan", gender: "Male" }, { name: "Samar", gender: "Male" }, { name: "Kabir", gender: "Male" },
-    { name: "Ishaan", gender: "Male" }, { name: "Manav", gender: "Male" }, { name: "Yash", gender: "Male" },
-    { name: "Veer", gender: "Male" }, { name: "Shaurya", gender: "Male" }, { name: "Dev", gender: "Male" },
-    { name: "Harsh", gender: "Male" }, { name: "Nikhil", gender: "Male" }, { name: "Abhay", gender: "Male" },
-    { name: "Kunal", gender: "Male" }, { name: "Jay", gender: "Male" },
+    { name: "Prince", Gender: "Male" }, { name: "Vivaan", Gender: "Male" }, { name: "Aditya", Gender: "Male" },
+    { name: "Krishna", Gender: "Male" }, { name: "Arjun", Gender: "Male" }, { name: "Rohan", Gender: "Male" },
+    { name: "Aryan", Gender: "Male" }, { name: "Samar", Gender: "Male" }, { name: "Kabir", Gender: "Male" },
+    { name: "Ishaan", Gender: "Male" }, { name: "Manav", Gender: "Male" }, { name: "Yash", Gender: "Male" },
+    { name: "Veer", Gender: "Male" }, { name: "Shaurya", Gender: "Male" }, { name: "Dev", Gender: "Male" },
+    { name: "Harsh", Gender: "Male" }, { name: "Nikhil", Gender: "Male" }, { name: "Abhay", Gender: "Male" },
+    { name: "Kunal", Gender: "Male" }, { name: "Jay", Gender: "Male" },
 
-    { name: "Ananya", gender: "Female" }, { name: "Diya", gender: "Female" }, { name: "Ishita", gender: "Female" },
-    { name: "Sneha", gender: "Female" }, { name: "Sanya", gender: "Female" }, { name: "Avni", gender: "Female" },
-    { name: "Kriti", gender: "Female" }, { name: "Meera", gender: "Female" }, { name: "Aanya", gender: "Female" },
-    { name: "Riya", gender: "Female" }, { name: "Tanya", gender: "Female" }, { name: "Prisha", gender: "Female" },
-    { name: "Nisha", gender: "Female" }, { name: "Ritika", gender: "Female" }, { name: "Pooja", gender: "Female" },
-    { name: "Neha", gender: "Female" }, { name: "Sakshi", gender: "Female" }, { name: "Radhika", gender: "Female" },
-    { name: "Simran", gender: "Female" }, { name: "Aarohi", gender: "Female" }, { name: "Aishwarya", gender: "Female" },
-    { name: "Shreya", gender: "Female" }, { name: "Bhavya", gender: "Female" }, { name: "Tanvi", gender: "Female" },
-    { name: "Vani", gender: "Female" }, { name: "Muskan", gender: "Female" }, { name: "Navya", gender: "Female" },
-    { name: "Ekta", gender: "Female" }, { name: "Tara", gender: "Female" }, { name: "Chaitanya", gender: "Male" }
+    { name: "Ananya", Gender: "Female" }, { name: "Diya", Gender: "Female" }, { name: "Ishita", Gender: "Female" },
+    { name: "Sneha", Gender: "Female" }, { name: "Sanya", Gender: "Female" }, { name: "Avni", Gender: "Female" },
+    { name: "Kriti", Gender: "Female" }, { name: "Meera", Gender: "Female" }, { name: "Aanya", Gender: "Female" },
+    { name: "Riya", Gender: "Female" }, { name: "Tanya", Gender: "Female" }, { name: "Prisha", Gender: "Female" },
+    { name: "Nisha", Gender: "Female" }, { name: "Ritika", Gender: "Female" }, { name: "Pooja", Gender: "Female" },
+    { name: "Neha", Gender: "Female" }, { name: "Sakshi", Gender: "Female" }, { name: "Radhika", Gender: "Female" },
+    { name: "Simran", Gender: "Female" }, { name: "Aarohi", Gender: "Female" }, { name: "Aishwarya", Gender: "Female" },
+    { name: "Shreya", Gender: "Female" }, { name: "Bhavya", Gender: "Female" }, { name: "Tanvi", Gender: "Female" },
+    { name: "Vani", Gender: "Female" }, { name: "Muskan", Gender: "Female" }, { name: "Navya", Gender: "Female" },
+    { name: "Ekta", Gender: "Female" }, { name: "Tara", Gender: "Female" }, { name: "Chaitanya", Gender: "Male" }
   ];
 
   const lastNames = [
@@ -61,8 +61,8 @@ export const generateRealisticData = () => {
   const random = (arr) => arr[Math.floor(Math.random() * arr.length)];
   const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-  // 👇 Correct gender with name
-  const { name: first_name, gender } = random(nameGenderPairs);
+  // 👇 Correct Gender with name
+  const { name: first_name, Gender } = random(nameGenderPairs);
   const last_name = random(lastNames);
   const selectedState = random(Object.keys(stateCityMap));
   const selectedCity = random(stateCityMap[selectedState]);
@@ -78,7 +78,7 @@ export const generateRealisticData = () => {
   return {
     first_name,
     last_name,
-    gender,
+    Gender,
     email: `${first_name.toLowerCase()}.${last_name.toLowerCase()}${randomInt(10, 99)}@${random(domains)}`,
     phone: `9${randomInt(100000000, 999999999)}`,
     age: randomInt(22, 45).toString(),

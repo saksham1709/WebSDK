@@ -77,7 +77,7 @@ export default function EcommerceForm() {
         <label>Phone</label>
         <input name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} className="form-input" />
         <label>Gender</label>
-        <select name="gender" value={formData.gender} onChange={handleChange} className="form-input">
+        <select name="Gender" value={formData.Gender} onChange={handleChange} className="form-input">
           <option value="">Select Gender</option>
           <option>Male</option><option>Female</option><option>Other</option>
         </select>
